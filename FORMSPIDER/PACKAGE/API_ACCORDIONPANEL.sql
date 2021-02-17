@@ -1,0 +1,38 @@
+CREATE OR REPLACE EDITIONABLE PACKAGE "FORMSPIDER"."API_ACCORDIONPANEL" IS
+EXPANDED constant varchar2(200) := bdf_constant.accordiontypeexpanded;
+COLLAPSED constant varchar2(200) := bdf_constant.accordiontypecollapsed;
+EXPANDICONPOSITIONLEFT constant varchar2(200) :=bdf_constant.expandIconPositionLeft;
+EXPANDICONPOSITIONRIGHT constant varchar2(200) :=bdf_constant.expandIconPositionRight;
+procedure removeAccordion(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2);
+procedure setAccordionEnable(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2, in_enabled_yn varchar2);
+procedure setAccordionTitle(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2, in_title_tx varchar2);
+function getAccordionTitle(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2) return varchar2;
+procedure expandAccordion(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2);
+procedure collapseAccordion(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2);
+function getAccordionState(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2) return varchar2;
+procedure addAccordion(in_accordionPanelName_tx varchar2, in_order_nr number, in_accordionName_tx varchar2,
+                       in_title_tx varchar2, in_panelName_tx varchar2);
+procedure removeAllAccordions(in_accordionPanelName_tx varchar2);
+procedure setAccordionPanel(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2, in_panelName_tx varchar2);
+procedure setAccordionOrder(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2, in_order_nr number);
+function getAccordionOrder(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2) return number;
+function getAccordionHeight(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2) return number;
+procedure setAccordionHeight(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2, in_height_nr number);
+function getAccordionHeaderHeight(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2) return number;
+procedure setAccordionHeaderHeight(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2, in_headerheight_nr number);
+function isAccordionHeaderVisible(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2) return varchar2;
+procedure setAccordionHeaderVisible(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2, in_headervisible_yn varchar2);
+function getAccordionHeaderBGColor(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2) return varchar2;
+procedure setAccordionHeaderBGColor(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2, in_backgroundcolor_cd varchar2);
+function isResizable(in_accordionPanelName_tx varchar2) return varchar2;
+procedure setResizable(in_accordionPanelName_tx varchar2, in_resizable_yn varchar2);
+function isAccordionEnabled(in_accordionPanelName_tx varchar2, in_accordionName_tx varchar2) return varchar2;
+function getExpandedAccordion(in_accordionPanelName_tx varchar2) return number;
+function getCollapsedAccordion(in_accordionPanelName_tx varchar2) return number;
+function getExpandIconPosition(in_accordionPanelName_tx varchar2) return varchar2;
+procedure setExpandIconPosition(in_accordionPanelName_tx varchar2, in_expandIconPosition_cd varchar2);
+function getHeightAllocationPolicy(in_accordionPanelName_tx varchar2) return varchar2;
+procedure setHeightAllocationPolicy(in_accordionPanelName_tx varchar2, in_heightAllocationPolicy_tx varchar2);
+function isMultiExpand(in_accordionPanelName_tx varchar2) return varchar2;
+procedure setMultiExpand(in_accordionPanelName_tx varchar2, in_multiExpand_yn varchar2);
+END;
